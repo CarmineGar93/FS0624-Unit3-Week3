@@ -17,9 +17,9 @@ const Favourites = () => {
                 <Col xs={10} className='mx-auto my-4'>
                 <ListGroup>
                     {
-                        fav.map((comp) => {
+                        fav.map((comp, i) => {
                             return (
-                                <ListGroupItem className='d-flex justify-content-between'>
+                                <ListGroupItem key={i} className='d-flex justify-content-between'>
                                     <Link to={`/${comp}`}>{comp}</Link>
                                     <Button variant='danger' onClick={() => dispatch({
                                         type: 'REMOVE_FROM_FAVOURITES',
