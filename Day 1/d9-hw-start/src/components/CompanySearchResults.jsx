@@ -1,13 +1,15 @@
 import { useEffect, useState } from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Button } from "react-bootstrap";
 import Job from "./Job";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { useDispatch } from 'react-redux'
 
 const CompanySearchResults = () => {
   const [jobs, setJobs] = useState([]);
   const params = useParams();
-
+  const dispatch = useDispatch()
   const baseEndpoint = "https://strive-benchmark.herokuapp.com/api/jobs?company=";
+  const navigate = useNavigate()
 
   useEffect(() => {
     getJobs();
@@ -20,6 +22,7 @@ const CompanySearchResults = () => {
       if (response.ok) {
         const { data } = await response.json();
         setJobs(data);
+        console.log(data)
       } else {
         alert("Error fetching results");
       }
@@ -31,11 +34,22 @@ const CompanySearchResults = () => {
   return (
     <Container>
       <Row>
-        <Col className="my-3">
+        <Col className="my-3" xs={12}>
           <h1 className="display-4">Job posting for: {params.company}</h1>
+          <Button variant="danger" onClick={() => {
+            dispatch({
+              type: 'ADD_TO_FAVOURITES',
+              payload: params.company
+            })
+          }}>Add to favourties</Button>
           {jobs.map(jobData => (
             <Job key={jobData._id} data={jobData} />
           ))}
+        </Col>
+        <Col>
+          <Button variant='danger' onClick={() => {
+            navigate('/')
+          }}>Homepage</Button>
         </Col>
       </Row>
     </Container>

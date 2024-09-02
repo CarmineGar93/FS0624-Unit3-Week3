@@ -1,10 +1,12 @@
 import { useState } from "react";
-import { Container, Row, Col, Form } from "react-bootstrap";
+import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import Job from "./Job";
+import { useNavigate } from "react-router-dom";
 
 const MainSearch = () => {
   const [query, setQuery] = useState("");
   const [jobs, setJobs] = useState([]);
+  const navigate = useNavigate()
 
   const baseEndpoint = "https://strive-benchmark.herokuapp.com/api/jobs?search=";
 
@@ -19,6 +21,7 @@ const MainSearch = () => {
       const response = await fetch(baseEndpoint + query + "&limit=20");
       if (response.ok) {
         const { data } = await response.json();
+        console.log(data)
         setJobs(data);
       } else {
         alert("Error fetching results");
@@ -43,6 +46,9 @@ const MainSearch = () => {
           {jobs.map(jobData => (
             <Job key={jobData._id} data={jobData} />
           ))}
+        </Col>
+        <Col xs={10} className="mx-auto">
+          <Button variant='danger' onClick={()=>navigate('/favourites')}>Go to your favourites</Button>
         </Col>
       </Row>
     </Container>
