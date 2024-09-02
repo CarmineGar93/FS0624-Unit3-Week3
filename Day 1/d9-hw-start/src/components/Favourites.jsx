@@ -1,5 +1,5 @@
 import {Container, Row, Col, ListGroup, ListGroupItem, Button} from 'react-bootstrap'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
 
 const Favourites = () => {
@@ -7,6 +7,7 @@ const Favourites = () => {
         return store.companies.favourites
     })
     const navigate = useNavigate()
+    const dispatch = useDispatch()
     return (
         <Container>
             <Row>
@@ -18,8 +19,12 @@ const Favourites = () => {
                     {
                         fav.map((comp) => {
                             return (
-                                <ListGroupItem>
+                                <ListGroupItem className='d-flex justify-content-between'>
                                     <Link to={`/${comp}`}>{comp}</Link>
+                                    <Button variant='danger' onClick={() => dispatch({
+                                        type: 'REMOVE_FROM_FAVOURITES',
+                                        payload: comp
+                                    })}>Remove fav</Button>
                                 </ListGroupItem>
                             )
                         })
