@@ -2,6 +2,21 @@ export const ADD_TO_FAVOURITES = "ADD_TO_FAVOURITES";
 export const REMOVE_FROM_FAVOURITES = "REMOVE_FROM_FAVOURITES";
 export const ADD_AD = 'ADD_AD'
 export const REMOVE_AD = 'REMOVE_AD'
+export const IS_LOADING = 'IS_LOADING'
+export const IS_LOADED = 'IS_LOADED'
+
+export const finishLoadingAction = () => {
+    return {
+        type: IS_LOADED
+    }
+}
+
+export const beginLoadingAction = () => {
+    return {
+        type: IS_LOADING
+    }
+}
+
 
 export const AddToFavouritesAction = (company) => {
     return {
@@ -28,6 +43,7 @@ export const retrieveAdsAction = (query) => {
                     type: ADD_AD,
                     payload: data
                 })
+                dispatch(finishLoadingAction())
             } else {
                 alert("Error fetching results");
             }
@@ -42,3 +58,4 @@ export const removeAdAction = () => {
         type: REMOVE_AD,
     }
 }
+
