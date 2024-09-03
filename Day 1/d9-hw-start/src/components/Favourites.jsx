@@ -17,7 +17,7 @@ const Favourites = () => {
                 <Col xs={10} className='mx-auto my-4'>
                 <ListGroup>
                     {
-                        fav.map((comp, i) => {
+                        fav.sort().map((comp, i) => {
                             return (
                                 <ListGroupItem key={i} className='d-flex justify-content-between'>
                                     <Link to={`/${comp}`}>{comp}</Link>
