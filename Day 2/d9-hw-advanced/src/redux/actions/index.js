@@ -43,7 +43,9 @@ export const retrieveAdsAction = (query) => {
                     type: ADD_AD,
                     payload: data
                 })
-                dispatch(finishLoadingAction())
+                setTimeout(()=>{
+                    dispatch(finishLoadingAction())
+                },2000)                
             } else {
                 alert("Error fetching results");
             }
