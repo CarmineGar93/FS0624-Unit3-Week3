@@ -36,14 +36,20 @@ const CompanySearchResults = () => {
       <Row>
         <Col className="my-3" xs={12}>
           <h1 className="display-4">Job posting for: {params.company} <button className="p-0 border-0 bg-transparent" onClick={() => {
-            dispatch({
-              type: 'ADD_TO_FAVOURITES',
-              payload: params.company
-            })
-          }}><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-heart-fill" viewBox="0 0 16 16">
-          <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314"/>
-        </svg></button></h1>
-          
+            !fav.includes(params.company) ?
+              dispatch({
+                type: 'ADD_TO_FAVOURITES',
+                payload: params.company
+              }) : dispatch({
+                type: 'REMOVE_FROM_FAVOURITES',
+                payload: params.company
+              })
+          }}><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill={
+            fav.includes(params.company) ? 'red' : "currentColor"
+          } className="bi bi-heart-fill" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314" />
+            </svg></button></h1>
+
           {jobs.map(jobData => (
             <Job key={jobData._id} data={jobData} />
           ))}
