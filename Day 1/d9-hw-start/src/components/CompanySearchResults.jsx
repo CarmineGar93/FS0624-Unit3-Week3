@@ -34,7 +34,7 @@ const CompanySearchResults = () => {
     <Container>
       <Row>
         <Col className="my-3" xs={12}>
-          <h1 className="display-4">Job posting for: {params.company} <button onClick={() => {
+          <h1 className="display-4">Job posting for: {params.company} <button className="p-0 border-0 bg-transparent" onClick={() => {
             dispatch({
               type: 'ADD_TO_FAVOURITES',
               payload: params.company
