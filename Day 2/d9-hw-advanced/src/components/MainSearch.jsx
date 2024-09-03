@@ -16,8 +16,8 @@ const MainSearch = () => {
   };
 
   const handleSubmit = e => {
-    dispatch(beginLoadingAction())
     e.preventDefault();
+    dispatch(beginLoadingAction())    
     dispatch(retrieveAdsAction(query))
   };
 
