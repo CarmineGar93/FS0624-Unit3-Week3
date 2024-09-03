@@ -1,6 +1,7 @@
 import {Container, Row, Col, ListGroup, ListGroupItem, Button} from 'react-bootstrap'
 import { useSelector, useDispatch } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
+import { removeFromFavouritesAction } from '../redux/actions'
 
 const Favourites = () => {
     const fav = useSelector(store => {
@@ -21,10 +22,7 @@ const Favourites = () => {
                             return (
                                 <ListGroupItem key={i} className='d-flex justify-content-between'>
                                     <Link to={`/${comp}`}>{comp}</Link>
-                                    <Button variant='danger' onClick={() => dispatch({
-                                        type: 'REMOVE_FROM_FAVOURITES',
-                                        payload: comp
-                                    })}>Remove fav</Button>
+                                    <Button variant='danger' onClick={() => dispatch(removeFromFavouritesAction(comp))}>Remove fav</Button>
                                 </ListGroupItem>
                             )
                         })
