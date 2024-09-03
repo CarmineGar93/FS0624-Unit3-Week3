@@ -3,6 +3,7 @@ import { Container, Row, Col, Button } from "react-bootstrap";
 import Job from "./Job";
 import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux'
+import { AddToFavouritesAction, removeFromFavouritesAction } from "../redux/actions";
 
 const CompanySearchResults = () => {
   const [jobs, setJobs] = useState([]);
@@ -37,13 +38,7 @@ const CompanySearchResults = () => {
         <Col className="my-3" xs={12}>
           <h1 className="display-4">Job posting for: {params.company} <button className="p-0 border-0 bg-transparent" onClick={() => {
             !fav.includes(params.company) ?
-              dispatch({
-                type: 'ADD_TO_FAVOURITES',
-                payload: params.company
-              }) : dispatch({
-                type: 'REMOVE_FROM_FAVOURITES',
-                payload: params.company
-              })
+              dispatch(AddToFavouritesAction(params.company)) : dispatch(removeFromFavouritesAction(params.company))
           }}><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill={
             fav.includes(params.company) ? 'red' : "currentColor"
           } className="bi bi-heart-fill" viewBox="0 0 16 16">
