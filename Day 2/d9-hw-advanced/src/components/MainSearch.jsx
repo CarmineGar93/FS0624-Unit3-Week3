@@ -2,13 +2,14 @@ import { useState } from "react";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import Job from "./Job";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { retrieveAdsAction } from "../redux/actions";
 
 const MainSearch = () => {
   const [query, setQuery] = useState("");
   const navigate = useNavigate()
   const dispatch = useDispatch()
+  const jobs = useSelector(store=>store.ads.ads)
   const handleChange = e => {
     setQuery(e.target.value);
   };
@@ -16,6 +17,7 @@ const MainSearch = () => {
   const handleSubmit = e => {
     e.preventDefault();
     dispatch(retrieveAdsAction(query))
+    console.log(jobs)
   };
 
   return (

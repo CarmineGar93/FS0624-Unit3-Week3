@@ -5,7 +5,7 @@ import { removeFromFavouritesAction } from '../redux/actions'
 
 const Favourites = () => {
     const fav = useSelector(store => {
-        return store.companies.favourites
+        return store.favourites.favourites
     })
     const navigate = useNavigate()
     const dispatch = useDispatch()
