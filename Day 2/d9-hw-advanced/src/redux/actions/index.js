@@ -1,6 +1,7 @@
 export const ADD_TO_FAVOURITES = "ADD_TO_FAVOURITES";
 export const REMOVE_FROM_FAVOURITES = "REMOVE_FROM_FAVOURITES";
 export const ADD_AD = 'ADD_AD'
+export const REMOVE_AD = 'REMOVE_AD'
 
 export const AddToFavouritesAction = (company) => {
     return {
@@ -35,3 +36,9 @@ export const retrieveAdsAction = (query) => {
         }
     };
 };
+
+export const removeAdAction = () => {
+    return {
+        type: REMOVE_AD,
+    }
+}

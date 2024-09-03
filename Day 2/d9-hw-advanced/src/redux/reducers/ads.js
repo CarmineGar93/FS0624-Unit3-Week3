@@ -1,4 +1,5 @@
 import { ADD_AD } from "../actions"
+import { REMOVE_AD } from "../actions"
 
 const initialState = {
     ads: []
@@ -11,6 +12,11 @@ const adsReducer = (state = initialState, action) => {
                 ...state,
                 ads: action.payload
             }
+        case REMOVE_AD:
+            return {
+                ...state,
+                ads: []
+            }   
         default:
             return state
     }

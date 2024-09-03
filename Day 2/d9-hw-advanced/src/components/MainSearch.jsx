@@ -3,7 +3,7 @@ import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import Job from "./Job";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { retrieveAdsAction } from "../redux/actions";
+import { removeAdAction, retrieveAdsAction } from "../redux/actions";
 
 const MainSearch = () => {
   const [query, setQuery] = useState("");
@@ -36,7 +36,9 @@ const MainSearch = () => {
           ))}
         </Col>
         <Col xs={10} className="mx-auto">
-          <Button variant='danger' onClick={()=>navigate('/favourites')}>Go to your favourites</Button>
+          <Button variant='danger' onClick={()=>{
+            dispatch(removeAdAction())
+            navigate('/favourites')}}>Go to your favourites</Button>
         </Col>
       </Row>
     </Container>
