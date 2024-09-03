@@ -1,12 +1,18 @@
-import {configureStore} from '@reduxjs/toolkit'
-import mainReducer from '../reducers'
+import {configureStore, combineReducers} from '@reduxjs/toolkit'
+import favouritesReducer from '../reducers/favourites'
+import adsReducer from '../reducers/ads'
 import { persistStore, persistReducer } from 'redux-persist'
-import storage from 'redux-persist/lib/storage'
+import {localStorage} from 'redux-persist/lib/storage'
 
 const persistConfig = {
     key: 'root',
-    storage
+    localStorage
 }
+
+const mainReducer = combineReducers({
+    favourites: favouritesReducer,
+    ads: adsReducer
+})
 
 const persistedReducer = persistReducer(persistConfig, mainReducer)
 
