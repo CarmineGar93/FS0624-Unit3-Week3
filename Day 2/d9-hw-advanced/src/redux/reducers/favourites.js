@@ -10,7 +10,7 @@ const favouritesReducer = (state = initialState, action) => {
             if(!state.favourites.includes(action.payload)) {
                 return {
                     ...state,
-                        favourites: [...state.favourites, action.payload]   
+                        favourites: [...state.favourites, action.payload].sort()   
                     }
                 }
             return state
