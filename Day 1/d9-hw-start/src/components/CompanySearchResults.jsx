@@ -2,12 +2,13 @@ import { useEffect, useState } from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import Job from "./Job";
 import { useNavigate, useParams } from "react-router-dom";
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 const CompanySearchResults = () => {
   const [jobs, setJobs] = useState([]);
   const params = useParams();
   const dispatch = useDispatch()
+  const fav = useSelector(state => state.companies.favourites)
   const baseEndpoint = "https://strive-benchmark.herokuapp.com/api/jobs?company=";
   const navigate = useNavigate()
 
