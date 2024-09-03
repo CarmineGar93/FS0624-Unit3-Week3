@@ -2,11 +2,11 @@ import {configureStore, combineReducers} from '@reduxjs/toolkit'
 import favouritesReducer from '../reducers/favourites'
 import adsReducer from '../reducers/ads'
 import { persistStore, persistReducer } from 'redux-persist'
-import {localStorage} from 'redux-persist/lib/storage'
+import storage from 'redux-persist/lib/storage'
 
 const persistConfig = {
     key: 'root',
-    localStorage
+    storage
 }
 
 const mainReducer = combineReducers({
