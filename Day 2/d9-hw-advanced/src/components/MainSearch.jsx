@@ -34,7 +34,7 @@ const MainSearch = () => {
         </Col>
         {
           isLoading ? (
-            <Col xs={10} className="text-center mx-auto">
+            <Col xs={10} className="text-center mx-auto mt-5">
             <Spinner animation="border" role="status">
               <span className="visually-hidden">Loading...</span>
             </Spinner>
