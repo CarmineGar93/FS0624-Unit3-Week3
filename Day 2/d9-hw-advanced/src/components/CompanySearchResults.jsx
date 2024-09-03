@@ -9,7 +9,7 @@ const CompanySearchResults = () => {
   const [jobs, setJobs] = useState([]);
   const params = useParams();
   const dispatch = useDispatch()
-  const fav = useSelector(state => state.companies.favourites)
+  const fav = useSelector(state => state.favourites.favourites)
   const baseEndpoint = "https://strive-benchmark.herokuapp.com/api/jobs?company=";
   const navigate = useNavigate()
 

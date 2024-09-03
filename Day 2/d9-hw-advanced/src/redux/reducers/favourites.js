@@ -7,7 +7,7 @@ const initialState = {
 const favouritesReducer = (state = initialState, action) => {
     switch(action.type) {
         case ADD_TO_FAVOURITES:
-            if(!state.companies.favourites.includes(action.payload)) {
+            if(!state.favourites.includes(action.payload)) {
                 return {
                     ...state,
                         favourites: [...state.favourites, action.payload]   

@@ -17,7 +17,6 @@ const MainSearch = () => {
   const handleSubmit = e => {
     e.preventDefault();
     dispatch(retrieveAdsAction(query))
-    console.log(jobs)
   };
 
   return (
