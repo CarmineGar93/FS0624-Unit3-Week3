@@ -2,7 +2,7 @@
 
 2 Il compilatore TS, che essenzialmente converte il nostro file TypeScript in puro JavaScript, è essenziale per far funzionare la nostra web app dato che il browser non è in grado di interpretare TypeScript. Per avviare la conversione bastera da terminale aprire la cartella nella quale è presente il nostro file .ts ed eseguire il comando "tsc nome_file" e verrà generato un file js che conterrà la conversione del nostro codice TypeScript
 
-3 Quando noi inizializziamo una variabile,un parametro, una funzione, un array etc. Typescript cercherà automaticamente, qualora non l'abbiamo fatto manualmente, ad assegnargli un tipo; questo fenomeno viene chiamato "type inference"
+3 Quando noi inizializziamo una variabile,un parametro, una funzione, un array, un oggetto etc. Typescript cercherà automaticamente, qualora non l'abbiamo fatto manualmente, ad assegnargli un tipo; questo fenomeno viene chiamato "type inference"
 
 4 Il tipo any è un tipo "pericoloso" perchè appunto vuol dire ogni quindi ad esempio una variabile di tipo any può ricevere un valore di qualsiasi tipo(boolean, string, object, array etc.). Sarebbe come scrivere del normale js
 
