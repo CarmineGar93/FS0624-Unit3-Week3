@@ -5,3 +5,6 @@
 3 Quando noi inizializziamo una variabile,un parametro, una funzione, una classe etc. Typescript cercherà automaticamente, qualora non l'abbiamo fatto manualmente, ad assegnargli un tipo; questo fenomeno viene chiamato "type inference"
 
 4 Il tipo any è un tipo "pericoloso" perchè appunto vuol dire ogni quindi ad esempio una variabile di tipo any può ricevere un valore di qualsiasi tipo(boolean, string, object, array etc.). Sarebbe come scrivere del normale js
+
+5 In typescript è possibile inizializzare variabili con tipi misti attraverso l'operatore "|" in modo tale che accetti più di un solo tipo di valore.
+Es: let x: string | number = 'Ciao' ..... x = 3
