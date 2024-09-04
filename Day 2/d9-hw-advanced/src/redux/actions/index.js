@@ -74,6 +74,9 @@ export const retrieveSearchedAction = (query) => {
                     type: ADD_SEARCH,
                     payload: data
                 })
+                setTimeout(() => {
+                    dispatch(finishLoadingAction())
+                }, 2000)
             } else {
                 alert("Error fetching results");
             }

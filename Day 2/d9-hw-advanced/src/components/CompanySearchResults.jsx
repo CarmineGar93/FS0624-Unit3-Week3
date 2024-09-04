@@ -1,24 +1,27 @@
-import { useEffect, useState } from "react";
-import { Container, Row, Col, Button } from "react-bootstrap";
+import { useEffect, /* useState  */} from "react";
+import { Container, Row, Col, Button, Spinner } from "react-bootstrap";
 import Job from "./Job";
 import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux'
-import { AddToFavouritesAction, removeFromFavouritesAction } from "../redux/actions";
+import { AddToFavouritesAction, removeFromFavouritesAction, retrieveSearchedAction, beginLoadingAction } from "../redux/actions";
 
 const CompanySearchResults = () => {
-  const [jobs, setJobs] = useState([]);
+  /* const [jobs, setJobs] = useState([]); */
   const params = useParams();
   const dispatch = useDispatch()
   const fav = useSelector(state => state.favourites.favourites)
-  const baseEndpoint = "https://strive-benchmark.herokuapp.com/api/jobs?company=";
+  const jobs = useSelector(state => state.searched.search)
+  const isLoading = useSelector(state => state.loaders.isLoading)
+  /* const baseEndpoint = "https://strive-benchmark.herokuapp.com/api/jobs?company="; */
   const navigate = useNavigate()
 
   useEffect(() => {
-    getJobs();
+    dispatch(beginLoadingAction())
+    dispatch(retrieveSearchedAction(params.company))
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const getJobs = async () => {
+  /* const getJobs = async () => {
     try {
       const response = await fetch(baseEndpoint + params.company);
       if (response.ok) {
@@ -31,7 +34,7 @@ const CompanySearchResults = () => {
       console.log(error);
     }
   };
-
+ */
   return (
     <Container>
       <Row>
@@ -45,7 +48,15 @@ const CompanySearchResults = () => {
               <path fillRule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314" />
             </svg></button></h1>
 
-          {jobs.map(jobData => (
+          {
+            isLoading ? (
+              <div className="text-center">
+              <Spinner animation="border" role="status">
+                <span className="visually-hidden">Loading...</span>
+              </Spinner>
+              </div>             
+            ) :          
+          jobs.map(jobData => (
             <Job key={jobData._id} data={jobData} />
           ))}
         </Col>

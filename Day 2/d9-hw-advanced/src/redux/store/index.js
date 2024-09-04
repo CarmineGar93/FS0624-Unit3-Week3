@@ -4,6 +4,7 @@ import adsReducer from '../reducers/ads'
 import { persistStore, persistReducer } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
 import loadersReducer from '../reducers/loaders'
+import searchedReducer from '../reducers/searched'
 
 const persistConfig = {
     key: 'root',
@@ -13,7 +14,8 @@ const persistConfig = {
 const mainReducer = combineReducers({
     favourites: favouritesReducer,
     ads: adsReducer,
-    loaders: loadersReducer
+    loaders: loadersReducer,
+    searched: searchedReducer
 })
 
 const persistedReducer = persistReducer(persistConfig, mainReducer)
