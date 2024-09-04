@@ -4,6 +4,8 @@ export const ADD_AD = 'ADD_AD'
 export const REMOVE_AD = 'REMOVE_AD'
 export const IS_LOADING = 'IS_LOADING'
 export const IS_LOADED = 'IS_LOADED'
+export const ADD_SEARCH = 'ADD_SEARCH'
+export const REMOVE_SEARCH = 'REMOVE_SEARCH'
 
 export const finishLoadingAction = () => {
     return {
@@ -43,9 +45,9 @@ export const retrieveAdsAction = (query) => {
                     type: ADD_AD,
                     payload: data
                 })
-                setTimeout(()=>{
+                setTimeout(() => {
                     dispatch(finishLoadingAction())
-                },2000)                
+                }, 2000)
             } else {
                 alert("Error fetching results");
             }
@@ -61,3 +63,28 @@ export const removeAdAction = () => {
     }
 }
 
+export const retrieveSearchedAction = (query) => {
+    return async (dispatch) => {
+        const baseEndpoint = "https://strive-benchmark.herokuapp.com/api/jobs?company="
+        try {
+            const response = await fetch(baseEndpoint + query);
+            if (response.ok) {
+                const { data } = await response.json();
+                dispatch({
+                    type: ADD_SEARCH,
+                    payload: data
+                })
+            } else {
+                alert("Error fetching results");
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    }
+}
+
+export const removeSearchAction = () => {
+    return {
+        type: REMOVE_SEARCH,
+    }
+}
