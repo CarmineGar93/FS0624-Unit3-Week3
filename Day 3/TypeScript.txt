@@ -8,3 +8,5 @@
 
 5 In typescript è possibile inizializzare variabili con tipi misti attraverso l'operatore "|" in modo tale che accetti più di un solo tipo di valore.
 Es: let x: string | number = 'Ciao' ..... x = 3
+
+6 Il costrutto interface consente di definire un tipo di dato la cui struttura viene verificata a tempo di compilazione da TypeScript. In questo modo, quindi, possiamo utilizzare l'interfaccia come se fosse un tipo di dato predefinito, permettendoci tra l'altro di riutilizzarla in più punti della nostra applicazione. La flessibilità delle interfacce di TypeScript si evidenzia nella possibilità di definire una struttura con elementi opzionali
