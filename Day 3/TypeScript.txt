@@ -10,3 +10,6 @@
 Es: let x: string | number = 'Ciao' ..... x = 3
 
 6 Il costrutto interface consente di definire un tipo di dato la cui struttura viene verificata a tempo di compilazione da TypeScript. In questo modo, quindi, possiamo utilizzare l'interfaccia come se fosse un tipo di dato predefinito, permettendoci tra l'altro di riutilizzarla in più punti della nostra applicazione. La flessibilità delle interfacce di TypeScript si evidenzia nella possibilità di definire una struttura con elementi opzionali
+
+7 Le generics sono uno degli strumenti più potenti e flessibili in TypeScript. Offrono un modo per creare componenti che possono lavorare con una varietà di tipi anziché un singolo tipo. Ciò aggiunge un livello di astrazione e riutilizzabilità nel codice, mantenendo la sicurezza dei tipi. Ad esempio, un Array<T> può essere un array di numeri, stringhe o qualsiasi altro tipo personalizzato, a seconda di come T viene specificato.
+
