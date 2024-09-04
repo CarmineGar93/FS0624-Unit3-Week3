@@ -1,4 +1,4 @@
-import { useEffect, /* useState  */} from "react";
+import { useEffect } from "react";
 import { Container, Row, Col, Button, Spinner } from "react-bootstrap";
 import Job from "./Job";
 import { useNavigate, useParams } from "react-router-dom";
@@ -12,7 +12,6 @@ const CompanySearchResults = () => {
   const fav = useSelector(state => state.favourites.favourites)
   const jobs = useSelector(state => state.searched.search)
   const isLoading = useSelector(state => state.loaders.isLoading)
-  /* const baseEndpoint = "https://strive-benchmark.herokuapp.com/api/jobs?company="; */
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -21,20 +20,6 @@ const CompanySearchResults = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  /* const getJobs = async () => {
-    try {
-      const response = await fetch(baseEndpoint + params.company);
-      if (response.ok) {
-        const { data } = await response.json();
-        setJobs(data);
-      } else {
-        alert("Error fetching results");
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
- */
   return (
     <Container>
       <Row>
