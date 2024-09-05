@@ -39,8 +39,9 @@ function SingleNews({single}: SingleNewsProps) {
                         <Card.Text>{single.summary}</Card.Text>
                     )
                 }
-               
-                <Button variant="primary" onClick={()=>navigate(`/details/${single.id}`)}>Check the news</Button>
+                {
+                    location.pathname !== `/details/${single.id}` && <Button variant="primary" onClick={()=>navigate(`/details/${single.id}`)}>Check the news</Button>
+                }              
             </Card.Body>
             <Card.Footer className="text-muted">{`${days[date.getDay()]}  ${date.getDate()} ${months[date.getMonth()]} - ${date.getHours()}:${date.getMinutes() === 0 ? '00': date.getMinutes()}`}</Card.Footer>
         </Card>

@@ -14,7 +14,6 @@ const MyNews = () => {
             if (response.ok) {
                 const data = await response.json()
                 setNews(data.results)
-                console.log(news)
             } else {
                 throw new Error('errore')
             }
