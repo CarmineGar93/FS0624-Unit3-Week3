@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import MyNavbar from './components/MyNavbar';
 import MyNews from './components/MyNews';
+import DetailedNews from './components/DetailedNews';
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
         <main>
           <Routes>
             <Route path='/' element={<MyNews />}></Route>
-            <Route path='/details'></Route>
+            <Route path='/details/:newsId' element={<DetailedNews />}></Route>
           </Routes>
         </main>
       </Container>
