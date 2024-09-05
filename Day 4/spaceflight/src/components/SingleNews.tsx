@@ -12,12 +12,11 @@ function SingleNews({single}: SingleNewsProps) {
     console.log(date)
     return (
         <Card className="text-center">
-            <Card.Header>{single.title}</Card.Header>
+            <Card.Header>{single.news_site}</Card.Header>
             <Card.Img variant="top" src={single.image_url} height={400} />
             <Card.Body>
-                <Card.Title>{single.title}</Card.Title>
-                <Card.Text>
-                    {single.summary}
+                <Card.Title><a href={single.url} title="a">{single.title}</a></Card.Title>
+                <Card.Text>{single.summary}                    
                 </Card.Text>
                 <Button variant="primary">Check the news</Button>
             </Card.Body>
