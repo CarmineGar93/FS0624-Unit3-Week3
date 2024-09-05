@@ -18,7 +18,7 @@ function SingleNews({single}: SingleNewsProps) {
                 location.pathname === `/details/${single.id}` && (
                     <>
                         <Card.Header>{single.news_site}</Card.Header>
-                        <Card.Img variant="top" src={single.image_url}/>
+                        <Card.Img variant="top" className=" rounded-0" src={single.image_url}/>
                     </>
                 )
             }
