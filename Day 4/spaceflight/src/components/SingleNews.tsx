@@ -13,7 +13,7 @@ function SingleNews({single}: SingleNewsProps) {
     return (
         <Card className="text-center">
             <Card.Header>{single.news_site}</Card.Header>
-            <Card.Img variant="top" src={single.image_url} height={400} />
+            <Card.Img variant="top" src={single.image_url} /* height={600} */ />
             <Card.Body>
                 <Card.Title><a href={single.url} title="a">{single.title}</a></Card.Title>
                 <Card.Text>{single.summary}                    
