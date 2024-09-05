@@ -2,6 +2,7 @@
 import { useState, FormEvent } from 'react'
 import { Navbar, Nav, Container, Form, Button } from 'react-bootstrap'
 import { Link, useLocation } from 'react-router-dom'
+import { useAppSelector } from '../hooks'
 interface MyNavbarProps {
     handle: Function
 }
@@ -9,6 +10,7 @@ interface MyNavbarProps {
 function MyNavbar({handle}: MyNavbarProps) {
     const[search, setSearch] = useState('')
     const location = useLocation()
+    const id = useAppSelector(state=>state.id)
     const isActive = (path: string) =>{
         return location.pathname === path ? 'nav-link active' : 'nav-link'
     }
@@ -27,7 +29,7 @@ function MyNavbar({handle}: MyNavbarProps) {
                         <Link to='/' className={isActive('/')} onClick={() => {
                             handle('')
                         }}>Home</Link>
-                        <Link to='/details' className='nav-link'>Details</Link>
+                        <Link to='/details' className={isActive(`/details/${id}`)}>Details</Link>
                     </Nav>
                     <Form onSubmit={e=>handleSubmit(e)} className="d-flex">
                         <Form.Control

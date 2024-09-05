@@ -3,10 +3,12 @@ import SingleNews from "./SingleNews"
 import { useParams } from "react-router-dom"
 import { Welcome } from "../interfaces/interface"
 import { useState, useEffect } from "react"
+import { useAppDispatch } from "../hooks"
 
 function DetailedNews() {
     const [news, setNews] = useState<Welcome | null>(null)
     const [isLoading, setIsLoading] = useState(false)
+    const dispatch = useAppDispatch()
     const params = useParams().newsId
     const fetchNews = async () => {
         try {
@@ -27,6 +29,10 @@ function DetailedNews() {
     }
 
     useEffect(() => {
+        dispatch({
+            type: 'ADD_ID',
+            payload: params
+        })
         setIsLoading(true)
         fetchNews()
     // eslint-disable-next-line react-hooks/exhaustive-deps
