@@ -4,6 +4,9 @@ import { Link, useLocation } from 'react-router-dom'
 
 function MyNavbar() {
     const location = useLocation()
+    const isActive = (path: string) =>{
+        return location.pathname === path ? 'nav-link active' : 'nav-link'
+    }
     return (
         <Navbar expand="lg" bg="dark" data-bs-theme="dark">
             <Container fluid>
@@ -11,7 +14,7 @@ function MyNavbar() {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
-                        <Link to='/' className='nav-link'>Home</Link>
+                        <Link to='/' className={isActive('/')}>Home</Link>
                         <Link to='/details' className='nav-link'>Details</Link>
                     </Nav>
                     <Form className="d-flex">

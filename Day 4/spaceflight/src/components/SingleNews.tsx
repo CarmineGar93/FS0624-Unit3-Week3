@@ -28,7 +28,7 @@ function SingleNews({single}: SingleNewsProps) {
                 {
                     location.pathname !== `/details/${single.id}` ? (
                         single.summary.length > 90 ? (
-                            <Card.Text>{single.summary.slice(0, single.summary.indexOf(' ', 90))}<span className="fw-bold">...See more </span>                   
+                            <Card.Text>{single.summary.slice(0, single.summary.indexOf(' ', 90))}<span className="fw-bold"> [...See more]</span>                   
                             </Card.Text>
                         ) : (
                             <Card.Text>{single.summary}                   
