@@ -39,7 +39,7 @@ function MyNavbar({handle}: MyNavbarProps) {
                             required
                             onChange={(e)=>setSearch(e.target.value)}
                         />
-                        <Button type='submit' variant="outline-danger">Search</Button>
+                        <Button type='submit' variant="outline-primary">Search</Button>
                     </Form>
                 </Navbar.Collapse>
             </Container>
