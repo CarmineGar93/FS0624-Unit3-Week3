@@ -2,7 +2,8 @@ import { Container } from 'react-bootstrap'
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import MyNavbar from './MyNavbar';
+import MyNavbar from './components/MyNavbar';
+import MyNews from './components/MyNews';
 
 function App() {
   return (
@@ -13,7 +14,7 @@ function App() {
         </header>
         <main>
           <Routes>
-            <Route path='/'></Route>
+            <Route path='/' element={<MyNews />}></Route>
             <Route path='/details'></Route>
           </Routes>
         </main>
