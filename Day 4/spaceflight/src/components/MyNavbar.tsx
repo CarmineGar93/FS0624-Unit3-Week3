@@ -24,7 +24,9 @@ function MyNavbar({handle}: MyNavbarProps) {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
-                        <Link to='/' className={isActive('/')}>Home</Link>
+                        <Link to='/' className={isActive('/')} onClick={() => {
+                            handle('')
+                        }}>Home</Link>
                         <Link to='/details' className='nav-link'>Details</Link>
                     </Nav>
                     <Form onSubmit={e=>handleSubmit(e)} className="d-flex">
