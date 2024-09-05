@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom"
 import { Welcome } from "../interfaces/interface"
 import { useState, useEffect } from "react"
 import { useAppDispatch } from "../hooks"
+import { AddIdAction } from "../redux/actions/actions"
 
 function DetailedNews() {
     const [news, setNews] = useState<Welcome | null>(null)
@@ -29,10 +30,7 @@ function DetailedNews() {
     }
 
     useEffect(() => {
-        dispatch({
-            type: 'ADD_ID',
-            payload: params
-        })
+        dispatch(AddIdAction(params))
         setIsLoading(true)
         fetchNews()
     // eslint-disable-next-line react-hooks/exhaustive-deps

@@ -1,19 +1,18 @@
+import { ADD_ID, AddId } from "../actions/actions"
+
 interface State {
-    id: number
+    id: string | undefined
 }
 
-type Action = {
-    type: string
-    payload: number
-}
+
 
 const initialState: State = {
-    id: 0
+    id: ''
 }
 
-function idReducer(state: State = initialState, action: Action) {
+function idReducer(state: State = initialState, action: AddId) {
     switch(action.type) {
-        case 'ADD_ID':
+        case ADD_ID:
             return {id: action.payload}
         default:
             return state    
